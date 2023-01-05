@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Header from "../components/header/Header";
+import Trending from "../components/trending/Trending";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
+        <Trending />
       </main>
     </>
   );
