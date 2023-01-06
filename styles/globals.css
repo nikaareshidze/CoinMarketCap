@@ -12,6 +12,10 @@
   margin: 0;
 }
 
+body {
+  background-color: #f9fafd;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -30,10 +30,10 @@ export default function TrendingComponent() {
   }
 
   return (
-    <div className="w-2/6">
+    <div className="w-2/6 bg-white px-8 pt-4 pb-8 rounded-xl">
       <div className="mb-4 flex justify-between items-center">
-        <h1>Trending</h1>
-        <h1 className="text-sm">Market Cap</h1>
+        <h1 className="font-bold">Trending</h1>
+        <h1 className="text-sm text-blue-700">Market Cap</h1>
       </div>
       <div>
         {trendingComponentElement.map((item) => {
@@ -41,11 +41,12 @@ export default function TrendingComponent() {
             <div className="flex justify-between items-center mb-2">
               <div className="flex gap-x-4 h-8 items-center">
                 <div className="w-4 flex justify-center items-center">
-                  <h1 className="text-sm">{item.id + 1}</h1>
+                  <h1 className="text-xs font-extralight">{item.id + 1}</h1>
                 </div>
                 <div className="flex items-center gap-x-2">
-                  <h1 className="text-sm font-bold">{item.name}</h1>
-                  <h1 className="text-xs font-light">{item.symbol}</h1>
+                  <img src={`${item.image}`} width="15" />
+                  <h1 className="text-sm font-medium">{item.name}</h1>
+                  <h1 className="text-xs font-extralight">{item.symbol}</h1>
                 </div>
               </div>
               <div>
