@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Header from "../components/header/Header";
 import Trending from "../components/trending/Trending";
+import Cryptocurrencies from "../components/cryptocurrencies/cryptocurrencies";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Header />
         <Trending />
+        <Cryptocurrencies />
       </main>
     </>
   );
