@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CryptocurrenciesListTitles from "./CryptocurrenciesListTitles";
 import CryptocurrenciesList from "./CryptocurrenciesList";
+import CryptocurrenciesFilter from "./CryptocurrenciesFilter";
 
 export default function Cryptocurrencies() {
   const [data, setData] = useState(null);
+  const [showRowsNumber, setShowRowsNumber] = useState(19);
 
   useEffect(() => {
     axios
@@ -33,7 +35,7 @@ export default function Cryptocurrencies() {
   ];
 
   if (data) {
-    for (let i = 0; i <= 29; i++) {
+    for (let i = 0; i <= showRowsNumber; i++) {
       cryptocurrenciesList.push({
         id: i + 1,
         name: data[i].name,
@@ -54,6 +56,10 @@ export default function Cryptocurrencies() {
 
   return (
     <div className="mt-8 mx-5">
+      <CryptocurrenciesFilter
+        showRowsNumber={showRowsNumber}
+        setShowRowsNumber={setShowRowsNumber}
+      />
       {cryptocurrenciesList.map((item) => {
         return (
           <>
