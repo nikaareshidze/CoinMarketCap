@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import CryptocurrenciesListTitles from "./CryptocurrenciesListTitles";
+import CryptocurrenciesList from "./CryptocurrenciesList";
 
 export default function Cryptocurrencies() {
   const [data, setData] = useState(null);
@@ -37,7 +39,9 @@ export default function Cryptocurrencies() {
         name: data[i].name,
         symbol: data[i].symbol,
         image: data[i].image,
-        currentPrice: data[i].current_price,
+        currentPrice: data[i].current_price.toLocaleString("en-US", {
+          maximumFractionDigits: 2,
+        }),
         priceChangePercentage24h:
           data[i].price_change_percentage_24h.toFixed(2),
         marketCap: data[i].market_cap.toLocaleString("en-US"),
@@ -54,56 +58,9 @@ export default function Cryptocurrencies() {
         return (
           <>
             {item.id == 0 ? (
-              <div className="flex items-center gap-x-6 font-bold">
-                <h1 className="w-9 h-10 flex justify-start items-center text-sm p-2.5">
-                  #
-                </h1>
-                <div className="h-10 w-48 flex justify-start items-center text-sm p-2.5 gap-x-1 ">
-                  Name
-                </div>
-                <h1 className="h-10 w-28 flex justify-end items-center text-sm p-2.5 ">
-                  Price
-                </h1>
-                <h1 className="h-10 w-40 flex justify-end items-center text-sm p-2.5">
-                  24h %
-                </h1>
-                <h1 className="h-10 w-32 flex justify-center items-center text-sm p-2.5 ">
-                  Market Cap
-                </h1>
-                <h1 className="h-10 w-48 flex justify-end items-center text-sm p-2.5">
-                  Circulating Supply
-                </h1>
-              </div>
+              <CryptocurrenciesListTitles item={item} />
             ) : (
-              <div className="flex items-center gap-x-6">
-                <h1 className="w-9 h-20 flex justify-start items-center text-sm p-2.5">
-                  {item.id}
-                </h1>
-                <div className="h-20 w-48 flex justify-start items-center text-sm p-2.5 gap-x-1 ">
-                  <img src={`${item.image}`} width="25" />
-                  <h1 className="font-bold">{item.name}</h1>
-                  <h1 className="font-extralight">{item.symbol}</h1>
-                </div>
-                <h1 className="h-20 w-28 flex justify-end items-center text-sm p-2.5 ">
-                  ${item.currentPrice}
-                </h1>
-                {item.priceChangePercentage24h > 0 ? (
-                  <h1 className="h-20 w-40 flex justify-end items-center text-sm p-2.5 text-green-400">
-                    {item.priceChangePercentage24h}%
-                  </h1>
-                ) : (
-                  <h1 className="h-20 w-40 flex justify-end items-center text-sm p-2.5 text-red-400">
-                    {item.priceChangePercentage24h}%
-                  </h1>
-                )}
-
-                <h1 className="h-20 w-32 flex justify-center items-center text-sm p-2.5 ">
-                  ${item.marketCap}
-                </h1>
-                <h1 className="h-20 w-48 flex justify-end items-center text-sm p-2.5">
-                  {item.circulatingSupply} {item.symbol}
-                </h1>
-              </div>
+              <CryptocurrenciesList item={item} />
             )}
           </>
         );
