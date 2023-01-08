@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "../components/header/Header";
 import Trending from "../components/trending/Trending";
 import Cryptocurrencies from "../components/cryptocurrencies/cryptocurrencies";
+import GlobalCryptoInfo from "../components/globalCryptoInfo/GlobalCryptoInfo";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <GlobalCryptoInfo />
         <Header />
         <Trending />
         <Cryptocurrencies />
