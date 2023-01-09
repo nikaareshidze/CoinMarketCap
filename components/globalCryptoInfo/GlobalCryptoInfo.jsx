@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
+import { darkModeActions } from "../../store/darkMode";
 
 export default function GlobalCryptoInfo() {
   const [data, setData] = useState(null);
+  const { isDark } = useSelector((state) => state.darkModeSlice);
+
+  const dispatch = useDispatch();
+  const setIsDark = () => {
+    dispatch(darkModeActions.setIsDark());
+  };
 
   useEffect(() => {
     axios
@@ -36,7 +45,11 @@ export default function GlobalCryptoInfo() {
   }
 
   return (
-    <div className="px-[15px] py-[5px] bg-white w-full border-b border-b-gray-300">
+    <div
+      className={`px-[15px] py-[5px] w-full border-b border-b-gray-300 ${
+        isDark ? "bg-[#17171a] text-[#A1A7BB]" : "bg-white"
+      }`}
+    >
       <div className="mx-[20px] flex items-center h-[40px] gap-x-3">
         <div className="flex gap-x-1 justify-center items-center">
           <h1 className="text-xs">Cryptos:</h1>
@@ -66,6 +79,13 @@ export default function GlobalCryptoInfo() {
             })}
           </p>
         </div>
+        <button
+          onClick={() => {
+            setIsDark();
+          }}
+        >
+          Make Dark
+        </button>
       </div>
     </div>
   );
