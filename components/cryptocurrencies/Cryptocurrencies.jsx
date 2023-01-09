@@ -55,22 +55,26 @@ export default function Cryptocurrencies() {
   }
 
   return (
-    <div className="mt-8 mx-5">
-      <CryptocurrenciesFilter
-        showRowsNumber={showRowsNumber}
-        setShowRowsNumber={setShowRowsNumber}
-      />
-      {cryptocurrenciesList.map((item) => {
-        return (
-          <>
-            {item.id == 0 ? (
-              <CryptocurrenciesListTitles item={item} />
-            ) : (
-              <CryptocurrenciesList item={item} />
-            )}
-          </>
-        );
-      })}
+    <div className="flex justify-between mt-8 px-[15px] mx-[20px]">
+      <div className="w-10/12">
+        {cryptocurrenciesList.map((item) => {
+          return (
+            <>
+              {item.id == 0 ? (
+                <CryptocurrenciesListTitles item={item} />
+              ) : (
+                <CryptocurrenciesList item={item} />
+              )}
+            </>
+          );
+        })}
+      </div>
+      <div>
+        <CryptocurrenciesFilter
+          showRowsNumber={showRowsNumber}
+          setShowRowsNumber={setShowRowsNumber}
+        />
+      </div>
     </div>
   );
 }

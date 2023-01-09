@@ -27,7 +27,7 @@ export default function CryptocurrenciesList(props) {
       <h1 className="h-20 w-32 flex justify-end items-center text-sm p-2.5 ">
         ${props.item.marketCap}
       </h1>
-      <h1 className="h-20 w-48 flex justify-end items-center text-sm p-2.5">
+      <h1 className="h-20 w-64 flex justify-end items-center text-sm p-2.5">
         {props.item.circulatingSupply} {props.item.symbol}
       </h1>
     </div>
