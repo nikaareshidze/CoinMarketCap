@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function TrendingComponent() {
   const [data, setData] = useState(null);
+  const { isDark } = useSelector((state) => state.darkModeSlice);
 
   useEffect(() => {
     axios
@@ -30,7 +32,11 @@ export default function TrendingComponent() {
   }
 
   return (
-    <div className="w-2/6 bg-white px-8 pt-4 pb-8 rounded-xl">
+    <div
+      className={`w-2/6 bg-white px-8 pt-4 pb-8 rounded-xl ${
+        isDark ? "bg-[#323546] text-white" : ""
+      }`}
+    >
       <div className="mb-4 flex justify-between items-center">
         <h1 className="font-bold">Trending</h1>
         <h1 className="text-sm text-blue-700">Market Cap</h1>

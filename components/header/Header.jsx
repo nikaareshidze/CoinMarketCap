@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import HeaderNavbar from "./HeaderNavbar";
 import Logo from "./Logo";
-import { darkModeActions } from "../../store/darkMode";
 
 export default function Header() {
   const { isDark } = useSelector((state) => state.darkModeSlice);

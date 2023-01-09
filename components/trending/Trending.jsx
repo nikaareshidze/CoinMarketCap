@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import TrendingComponent from "./TrendingComponent";
 
@@ -9,8 +10,14 @@ export default function Trending() {
     setShown(!shown);
   };
 
+  const { isDark } = useSelector((state) => state.darkModeSlice);
+
   return (
-    <div className="px-[15px] mx-[20px] mt-8">
+    <div
+      className={`px-[35px] pt-8 w-full ${
+        isDark ? "bg-[#21232d] text-white" : ""
+      }`}
+    >
       <div className="flex items-center justify-between mb-4 gap-x-2">
         <div className="w-10/12">
           <h1 className="font-bold text-2xl">
@@ -26,7 +33,7 @@ export default function Trending() {
           </button>
         </div>
       </div>
-      {shown ? <TrendingComponent /> : null}
+      <div className="pb-8"> {shown ? <TrendingComponent /> : null}</div>
     </div>
   );
 }
