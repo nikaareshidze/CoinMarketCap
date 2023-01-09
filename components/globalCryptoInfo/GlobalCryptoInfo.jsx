@@ -79,13 +79,25 @@ export default function GlobalCryptoInfo() {
             })}
           </p>
         </div>
-        <button
-          onClick={() => {
-            setIsDark();
-          }}
-        >
-          Make Dark
-        </button>
+        {isDark ? (
+          <span
+            class="material-symbols-outlined"
+            onClick={() => {
+              setIsDark();
+            }}
+          >
+            dark_mode
+          </span>
+        ) : (
+          <span
+            class="material-symbols-outlined"
+            onClick={() => {
+              setIsDark();
+            }}
+          >
+            light_mode
+          </span>
+        )}
       </div>
     </div>
   );
