@@ -1,8 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function CryptocurrenciesList(props) {
+  const { isDark } = useSelector((state) => state.darkModeSlice);
+
   return (
-    <div className="flex items-center gap-x-6 border-y border-b-gray-300">
+    <div
+      className={`flex items-center gap-x-6 border-y border-b-gray-300 ${
+        isDark ? "bg-[#17171a] text-white" : ""
+      }`}
+    >
       <h1 className="w-9 h-20 flex justify-start items-center text-sm p-2.5">
         {props.item.id}
       </h1>

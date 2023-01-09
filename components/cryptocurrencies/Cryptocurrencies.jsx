@@ -4,9 +4,13 @@ import CryptocurrenciesListTitles from "./CryptocurrenciesListTitles";
 import CryptocurrenciesList from "./CryptocurrenciesList";
 import CryptocurrenciesFilter from "./CryptocurrenciesFilter";
 
+import { useSelector } from "react-redux";
+
 export default function Cryptocurrencies() {
   const [data, setData] = useState(null);
   const [showRowsNumber, setShowRowsNumber] = useState(19);
+
+  const { isDark } = useSelector((state) => state.darkModeSlice);
 
   useEffect(() => {
     axios
@@ -55,7 +59,11 @@ export default function Cryptocurrencies() {
   }
 
   return (
-    <div className="flex justify-between mt-8 px-[15px] mx-[20px]">
+    <div
+      className={`flex justify-between  px-[35px] pt-8  ${
+        isDark ? "bg-[#17171a]" : ""
+      }`}
+    >
       <div className="w-10/12">
         {cryptocurrenciesList.map((item) => {
           return (
