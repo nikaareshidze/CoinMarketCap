@@ -14,7 +14,7 @@ export default function Header() {
           : "bg-white border-b-gray-300"
       }`}
     >
-      <div className="mx-[20px] flex items-center h-[60px]">
+      <div className="mx-[20px] flex items-center h-[60px] max-[800px]:justify-between">
         <Logo />
         <HeaderNavbar />
       </div>
