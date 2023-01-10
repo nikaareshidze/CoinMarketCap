@@ -35,6 +35,8 @@ export default function Cryptocurrencies() {
       priceChangePercentage24h: "24h %",
       marketCap: "Market Cap",
       circulatingSupply: "Circulating Supply",
+      ath: "All Time High",
+      totalSupply: "Total Supply",
     },
   ];
 
@@ -54,6 +56,8 @@ export default function Cryptocurrencies() {
         circulatingSupply: data[i].circulating_supply.toLocaleString("en-US", {
           maximumFractionDigits: 0,
         }),
+        totalSupply: data[i].total_supply,
+        ath: data[i].ath,
       });
     }
   }

@@ -28,6 +28,12 @@ export default function CryptocurrenciesListTitles(props) {
       <h1 className="h-10 w-64 flex justify-end items-center text-sm p-2.5">
         {props.item.circulatingSupply}
       </h1>
+      <h1 className="h-10 w-32 flex justify-center items-center text-sm p-2.5 ">
+        {props.item.ath}
+      </h1>
+      <h1 className="h-10 w-32 flex justify-center items-center text-sm p-2.5 ">
+        {props.item.totalSupply}
+      </h1>
     </div>
   );
 }
