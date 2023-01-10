@@ -35,7 +35,7 @@ export default function TrendingComponent() {
     <div
       className={`w-2/6 bg-white px-8 pt-4 pb-8 rounded-xl ${
         isDark ? "bg-[#323546] text-white" : ""
-      }`}
+      } max-[1100px]:w-4/6`}
     >
       <div className="mb-4 flex justify-between items-center">
         <h1 className="font-bold">Trending</h1>
