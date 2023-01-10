@@ -48,7 +48,7 @@ export default function GlobalCryptoInfo() {
     <div
       className={`px-[15px] py-[5px] w-full border-b border-b-gray-300 ${
         isDark ? "bg-[#17171a] text-[#A1A7BB]" : "bg-white"
-      }`}
+      } max-[1200px]:flex justify-center`}
     >
       <div className="mx-[20px] flex items-center h-[40px] gap-x-3">
         <div className="flex gap-x-1 justify-center items-center">
